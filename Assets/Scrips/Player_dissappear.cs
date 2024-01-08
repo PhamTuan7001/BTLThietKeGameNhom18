@@ -8,6 +8,10 @@ public class Player_dissappear : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
+
+
+
+    [SerializeField] private AudioSource DeathSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +31,7 @@ public class Player_dissappear : MonoBehaviour
 
     private void Die()
     {
+        DeathSound.Play();
         rb.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("dissapear");
     }
